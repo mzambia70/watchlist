@@ -1,15 +1,10 @@
 import unittest
-
-from models import review
-
-Review = review.Review
-
+from app.models import Review
 
 class TestReview(unittest.TestCase):
 
     def setUp(self):
-        self.new_review = Review(12345, 'Review for movies', "https://image.tmdb.org/t/p/w500/jdjdjdjn",
-                                 'This movie is the best thing since sliced bread')
+        self.new_review = Review(12345, 'Review for movies', "https://image.tmdb.org/t/p/w500/jdjdjdjn",'This movie is the best thing since sliced bread')
 
     def tearDown(self):
         Review.clear_reviews()
@@ -30,5 +25,4 @@ class TestReview(unittest.TestCase):
         self.assertTrue(len(Review.all_reviews) > 0)
 
 
-if __name__ == '__main__':
-    unittest.main()
+
